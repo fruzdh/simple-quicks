@@ -41,7 +41,7 @@ const InboxDetailFooter = ({ data, setData }) => {
         bgColor="primary.blue"
         textColor="white"
         isDisabled={message === ""}
-        onClick={() =>
+        onClick={() => {
           setData({
             ...data,
             chat: [
@@ -55,8 +55,9 @@ const InboxDetailFooter = ({ data, setData }) => {
                 reply_to: reply?.message,
               },
             ],
-          })
-        }
+          });
+          setMessage("");
+        }}
         _hover={{
           bgColor: "primary.blue",
         }}
