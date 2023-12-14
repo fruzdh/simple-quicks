@@ -128,7 +128,11 @@ const TaskItem = ({ data }) => {
             type="date"
             value={
               data?.time
-                ? `${data?.time.getFullYear()}-${data?.time.getMonth()}-${data?.time.getDate()}`
+                ? `${data?.time.getFullYear()}-${data?.time.getMonth()}-${
+                    data?.time.getDate() < 10
+                      ? "0" + data?.time.getDate()
+                      : data?.time.getDate()
+                  }`
                 : ""
             }
             onChange={() => {}}

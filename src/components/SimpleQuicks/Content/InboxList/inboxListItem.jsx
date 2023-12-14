@@ -16,7 +16,7 @@ const InboxListItem = ({ data, isLast }) => {
       onClick={() => setInboxId(data.id)}
     >
       <ChatIcon type={data.type} />
-      <Box maxW="calc(100% - 212px)">
+      <Box maxW="calc(100% - 212px)" flex="1">
         <Heading
           fontWeight="bold"
           fontSize="16px"

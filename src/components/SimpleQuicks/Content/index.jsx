@@ -23,7 +23,8 @@ const Content = () => {
       borderRadius="sm"
     >
       {activeType === "Task" && <Task />}
-      {activeType === "Inbox" && (inboxId ? <InboxDetail /> : <InboxList />)}
+      {activeType === "Inbox" &&
+        (inboxId !== undefined ? <InboxDetail /> : <InboxList />)}
     </Box>
   );
 };

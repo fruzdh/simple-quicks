@@ -2,14 +2,19 @@ import { Flex } from "@chakra-ui/react";
 import InboxDetailHeader from "./inboxDetailHeader";
 import InboxDetailItem from "./inboxDetailItem";
 import InboxDetailFooter from "./inboxDetailFooter";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useSimpleQuicks } from "../../../../context/simpleQuicksContext";
 import { getInboxDetail } from "../../../../data";
 
 const InboxDetail = () => {
-  const { inboxId } = useSimpleQuicks();
+  const { inboxId, setReply } = useSimpleQuicks();
   const [data, setData] = useState();
   const ref = useRef();
+
+  useLayoutEffect(() => {
+    setReply();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     getInboxDetail(inboxId).then((value) => setData(value));
