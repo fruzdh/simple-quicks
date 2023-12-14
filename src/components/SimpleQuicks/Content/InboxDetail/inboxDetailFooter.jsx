@@ -10,14 +10,20 @@ import {
 
 import close from "../../../../assets/icon/close.png";
 import { useSimpleQuicks } from "../../../../context/simpleQuicksContext";
+import { useState } from "react";
 
-const InboxDetailFooter = () => {
+const InboxDetailFooter = ({ data, setData }) => {
   const { reply, setReply } = useSimpleQuicks();
+  const [message, setMessage] = useState("");
+
+  console.log(data);
 
   return (
     <Flex pb="16px" px="16px" gap="16px" fontSize="14px">
       <Input
         placeholder="Type a new message"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
         borderColor="primary.gray"
         size="sm"
         borderRadius="md"
@@ -36,6 +42,23 @@ const InboxDetailFooter = () => {
         minW="50px"
         bgColor="primary.blue"
         textColor="white"
+        isDisabled={message === ""}
+        onClick={() =>
+          setData({
+            ...data,
+            chat: [
+              ...data?.chat,
+              {
+                id: -1,
+                from: 0,
+                message: message,
+                time: new Date(),
+                read: [],
+                reply_to: reply?.message,
+              },
+            ],
+          })
+        }
         _hover={{
           bgColor: "primary.blue",
         }}

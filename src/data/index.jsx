@@ -21,7 +21,12 @@ const chatRoom = [
         id: i,
         from: i % 3 === 0 ? 0 : 1,
         message: `${i} - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate lacus nulla, in dignissim augue placerat mattis.`,
-        time: new Date(2023, 11, Math.random() * 31, Math.random() * 23),
+        time: new Date(
+          2023,
+          11,
+          Math.random() * new Date().getDate() - 1,
+          Math.random() * 23
+        ),
         read: i < 5 ? [i % 3 === 0 ? 1 : 0] : [],
         reply_to: "",
       }))
@@ -49,7 +54,12 @@ const chatRoom = [
         id: i,
         from: i % 3 === 0 ? 2 : 0,
         message: `${i} - Lorem ipsum dolor sit amet`,
-        time: new Date(2023, 11, Math.random() * 31, Math.random() * 23),
+        time: new Date(
+          2023,
+          11,
+          Math.random() * new Date().getDate() - 1,
+          Math.random() * 23
+        ),
         read: [],
         reply_to: i > 0 ? `${i - 1} - Lorem ipsum dolor sit amet.` : "",
       }))
@@ -82,7 +92,12 @@ const chatRoom = [
         id: i,
         from: [0, 1, 3][i % 3],
         message: `${i} - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate lacus nulla, in dignissim augue placerat mattis.`,
-        time: new Date(2023, 11, Math.random() * 31, Math.random() * 23),
+        time: new Date(
+          2023,
+          11,
+          Math.random() * new Date().getDate() - 1,
+          Math.random() * 23
+        ),
         read: [],
         reply_to:
           i > 3 && i < 7
@@ -120,7 +135,12 @@ const chatRoom = [
         id: i,
         from: [0, 2, 3][i % 3],
         message: `${i} - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate lacus nulla, in dignissim augue placerat mattis.`,
-        time: new Date(2023, 11, Math.random() * 31, Math.random() * 23),
+        time: new Date(
+          2023,
+          11,
+          Math.random() * new Date().getDate() - 1,
+          Math.random() * 23
+        ),
         read: [],
         reply_to: "",
       }))
@@ -132,7 +152,12 @@ const task = Array.from({ length: 10 })
   .map((_, i) => ({
     id: i,
     title: `${i} - Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
-    time: new Date(2023, 11, Math.random() * 31, Math.random() * 23),
+    time: new Date(
+      2023,
+      11,
+      Math.random() * new Date().getDate() - 1,
+      Math.random() * 23
+    ),
     description: `${i} - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate lacus nulla, in dignissim augue placerat mattis.`,
     category: "my-task",
     isDone: i < 5,

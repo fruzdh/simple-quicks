@@ -56,7 +56,7 @@ const InboxDetail = () => {
           />
         ))}
       </Flex>
-      <InboxDetailFooter />
+      <InboxDetailFooter data={data} setData={setData} />
     </Flex>
   );
 };
