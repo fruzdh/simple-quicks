@@ -1,24 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Box } from "@chakra-ui/react";
+import SimpleQuicks from "./components/SimpleQuicks";
+import { SimpleQuicksProvider } from "./context/simpleQuicksContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box w="100vw" h="100vh" bgColor="#333333">
+      <SimpleQuicksProvider>
+        <SimpleQuicks />
+      </SimpleQuicksProvider>
+    </Box>
   );
 }
 
