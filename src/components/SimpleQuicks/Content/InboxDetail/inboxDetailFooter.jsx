@@ -16,8 +16,6 @@ const InboxDetailFooter = ({ data, setData }) => {
   const { reply, setReply } = useSimpleQuicks();
   const [message, setMessage] = useState("");
 
-  console.log(data);
-
   return (
     <Flex pb="16px" px="16px" gap="16px" fontSize="14px">
       <Input
